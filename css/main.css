@@ -1,13 +1,19 @@
+@import url('./fonts.css');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* ':' 가상 클래스 '::' 가상, 요소 구분을 위함 ; 하나도 되긴 됨 */
-/* CSS3 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 body {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -20,13 +26,97 @@ body {
 .main,
 .slogan {
   width: 940px;
-  /* margin-inline: auto; */
-  margin: 0 auto;
-
+  /* margin: 0 auto; */
+  margin-inline: auto;
 }
 
 .header {
-  background-color: yellow;
+  /* background-color: #fff; */
+  background-color: skyblue;
+  position: relative;
+  border-radius: 0 0 15px 15px;
+  /* padding: 0 30px 40px; */
+  border: 3px solid red;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 500px;
+}
+
+/* .box { */
+/* background-color: red; */
+/* height: 50px; */
+/* transform: translateX(200px); */
+/* 하위 .logo의 container 블록이 됨 ; eg. filter, transfrom,  */
+/* } */
+
+.logo {
+  margin-block: 0;
+  position: absolute;
+  top: 45px;
+  left: 65px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.logo a,
+.logo img {
+  display: block;
+  border: 2px solid red;
+}
+
+/* .logo { */
+/* position: absolute; */
+/* left: 0; */
+/* right: 0; */
+/* width: 150px; */
+/* text-align: center; */
+/* Block으로 바뀌는데 text-align? */
+/* margin: 0;  */
+/* } */
+
+.member-service {
+  /* position: absolute;
+  top: 0;
+  right: 0; */
+  list-style: none;
+  /* display: flex; */
+  justify-content: flex-end;
+  padding-left: 0;
+  border: 1px solid black;
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
+  text-align: right;
+}
+
+.member-service li {
+  /* padding: 0.5em; */
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.member-service li:nth-child(n+2)::before {
+  content: ":";
+}
+/* not을 사용할 수도 있음 */
+
+.member-service a {
+  display: inline-block;
+  padding: 8px;
+  text-decoration: none;
+  /* color: #fff; */
+  /* font-size: 1.5em; */
+}
+
+.member-service li:nth-child(3) {
+  /* margin-right: auto; */
+  /* dh! */
 }
 
 .visual {
@@ -35,14 +125,36 @@ body {
 
 .main {
   background-color: aqua;
-  height: 50vh;
-  display: flex;
-  padding: 30px;
-  justify-content: space-between;
-  /* 크로스 브라우징 space-evenly 적용 안 됨 */
+  display: flow-root;
+  padding: 30px 15px;
+  min-height: 450px;
+  /* float: left; 자식의 크기 읽어드림 */
+  /* overflow: hidden; 자식의 크기를 읽어드림 */
+  /* BFC */
+  /* zoom: 1; */
+  /* 확대 축소 */
+  /* height: 20vh; */
+  /* display: flex; */
+  /* padding: 30px 0; */
+  /* justify-content: space-between; */
+  /* 크로스 브라우징 IE에서 space-evenly 적용 안 됨 */
 }
 
+/* .main::after {
+  content: "";
+  display: block;
+  clear: both;
+} */
+
+/* .clearfix { */
+/* height: 20px; */
+/* clear: both; */
+/* } */
+
 .group {
+  width: 200px;
+  position: relative;
+  margin: 0 15px;
   /* flex-grow: 1; */
   /* flex-shrink: 1; */
   /* flex-basis: 100%; */
@@ -51,17 +163,23 @@ body {
 
 .group1 {
   background-color: tomato;
+  float: left;
+  /* position: relative; */
+  /* top: -20px; */
+  /* left: -20px; */
   width: 250px;
 }
 
 .group2 {
   background-color: olive;
+  float: left;
   width: 380px;
-  order: -1;
+  /* order: -1; */
 }
 
 .group3 {
   background-color: brown;
+  float: left;
   width: 190px;
 }
 
